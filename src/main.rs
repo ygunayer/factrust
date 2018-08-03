@@ -44,7 +44,6 @@ impl EratosthenesSieve {
             println!("VALLA PARALLEL");
             return iters
                 .par_iter()
-                .cloned()
                 .fold(|| HashMap::new(), |mut acc, (a, b)| { acc.insert(a * b, true); return acc; })
                 .reduce(|| HashMap::new(), |mut a, b| { a.extend(b); return a; });
         });
